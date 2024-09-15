@@ -17,21 +17,28 @@
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-    h1 {
-      font-size: 2rem;
+      flex-direction: column;
       text-align: center;
+    }
+    .redirect-button {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Переадресация на страницу фильма...</h1>
+    <h1>Кинозал</h1>
+    <p>Для просмотра фильма нажмите на кнопку ниже:</p>
+    <a class="redirect-button" href="https://pirat.one/t/401876/" target="_blank">Перейти к фильму</a>
   </div>
-
-  <script>
-    // Редирект на сайт pirat.one
-    window.location.href = "https://pirat.one/t/401876/";
-  </script>
 </body>
 </html>
