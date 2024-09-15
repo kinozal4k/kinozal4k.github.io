@@ -17,28 +17,39 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      text-align: center;
+      position: relative;
     }
-    .redirect-button {
-      padding: 10px 20px;
-      font-size: 1.2rem;
-      color: white;
-      background-color: #007bff;
+    iframe {  
+      width: 100vw;
+      height: 100vh; 
       border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    #loadingMessage {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.5rem;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Кинозал</h1>
-    <p>Для просмотра фильма нажмите на кнопку ниже:</p>
-    <a class="redirect-button" href="https://pirat.one/t/401876/" target="_blank">Перейти к фильму</a>
+    <div id="loadingMessage">Загрузка фильма...</div>
+    <iframe id="filmFrame" allowfullscreen style="display:none;"></iframe>
   </div>
+
+  <script>
+    // Задержка перед загрузкой фильма
+    setTimeout(() => {
+      const iframe = document.getElementById('filmFrame');
+      iframe.src = "https://pirat.one/t/401876/";
+      iframe.style.display = 'block';
+
+      // Убираем сообщение о загрузке
+      document.getElementById('loadingMessage').style.display = 'none';
+    }, 2000); // 2-секундная задержка
+  </script>
 </body>
 </html>
